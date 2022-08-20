@@ -5,6 +5,7 @@ import { theme } from "./styles/theme";
 import Button from "./components/button";
 import { Card } from "./components/card";
 import PaymentList from "./components/paymentsList";
+import PaymentForm from "./components/paymentForm";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -24,6 +25,7 @@ function App() {
             <Button>Connect wallet</Button>
           </Card>
           {/* <PaymentList /> */}
+          {/* <PaymentForm /> */}
         </Wrapper>
       </ThemeProvider>
     </>

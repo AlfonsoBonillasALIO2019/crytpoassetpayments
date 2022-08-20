@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Card } from "./card";
-import { Title, BodyGay } from "./typography";
+import { Title, BodyGray } from "./typography";
 import ButtonWithIcon from "./buttonWithIcon";
-import Header1 from "./Headers";
+import { Header1 } from "./Headers";
+import ListItem from "./listItem";
 
 const Wrapper = styled.div`
-  min-width: 500px;
+  min-width: 400px;
 `;
 
 const PaymentListHeader = styled.div`
@@ -35,14 +36,16 @@ const PaymentList = () => {
     <Card>
       <Wrapper>
         <PaymentListHeader>
-          <Title>User adress</Title>
+          <Title>[User adress]</Title>
           <ButtonWithIcon icon={"log-out"}>Log-out</ButtonWithIcon>
         </PaymentListHeader>
         <Header1 />
         <PaymentsList>
-          <EmptyList>
-            <BodyGay>There are no recurrent payments</BodyGay>
-          </EmptyList>
+          {/* <EmptyList>
+            <BodyGray>There are no recurrent payments</BodyGray>
+          </EmptyList> */}
+          <ListItem isActive={true}>[Payment name]</ListItem>
+          <ListItem isActive={false}>[Payment name]</ListItem>
         </PaymentsList>
       </Wrapper>
     </Card>

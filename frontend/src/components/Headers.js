@@ -4,7 +4,7 @@ import { Title } from "./typography";
 import ButtonWithIcon from "./buttonWithIcon";
 
 const Wrapper = styled.div`
-  padding: 20px;
+  padding: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   border-radius: 8px;
 `;
 
-const Header1 = () => {
+export const Header1 = () => {
   return (
     <Wrapper>
       <Title>My recurrent payments</Title>
@@ -21,4 +21,13 @@ const Header1 = () => {
   );
 };
 
-export default Header1;
+export const Header2 = () => {
+  return (
+    <Wrapper style={{ justifyContent: "flex-start" }}>
+      <ButtonWithIcon icon={"arrow-left"} />
+      <Title>Back to dashboard</Title>
+    </Wrapper>
+  );
+};
+
+export default { Header1, Header2 };
