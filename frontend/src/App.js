@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyle from "./styles/globalStyles";
+import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./styles/theme";
+import Button from "./components/button";
+import { Card } from "./components/card";
+import PaymentList from "./components/paymentsList";
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Wrapper>
+          <Card>
+            <Button>Connect wallet</Button>
+          </Card>
+          {/* <PaymentList /> */}
+        </Wrapper>
+      </ThemeProvider>
+    </>
   );
 }
 
