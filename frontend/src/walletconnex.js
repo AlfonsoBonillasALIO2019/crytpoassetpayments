@@ -48,8 +48,8 @@ function init() {
     walletconnect: {
       package: WalletConnectProvider,
       options: {
-        // Mikko's test key - don't copy as your mileage may vary
-        infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
+        // Al bonesy key
+        infuraId: "84c4debc3db64f63830cb4a829b7a21e",
       }
     },
 
@@ -57,7 +57,7 @@ function init() {
       package: Fortmatic,
       options: {
         // Mikko's TESTNET api key
-        key: "pk_test_391E26A3B43A3350"
+        key: "pk_test_391E26A3B43A3350" //not using
       }
     }
   };
