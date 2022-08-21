@@ -11,7 +11,7 @@ const ButtonWrapper = styled.button`
   align-items: center;
   justify-content: center;
   background: ${(props) => props.theme.colors.blue};
-  padding: 20px;
+  padding: 14px;
   border-radius: 8px;
   cursor: pointer;
 `;

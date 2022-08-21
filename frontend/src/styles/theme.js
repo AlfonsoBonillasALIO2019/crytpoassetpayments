@@ -8,9 +8,9 @@ export const theme = {
     white: "#ffffff",
   },
   fontSizes: {
-    small: "1em",
-    medium: "2em",
-    large: "3em",
+    small: "10px",
+    medium: "12px",
+    large: "16px",
   },
   fontWeights: {
     regular: "400",

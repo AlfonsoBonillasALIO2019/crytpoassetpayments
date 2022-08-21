@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background: ${(props) => props.theme.colors.background};
+    background: ${(props) => props.theme.colors.lightBlue};
     font-family: 'Inter', Helvetica, Sans-Serif;
   }
   p {
@@ -15,6 +15,11 @@ const GlobalStyle = createGlobalStyle`
   button {
     border: none;
     background: unset;
+  }
+  input {
+    margin: 0;
+    padding: 0;
+    border: 1px solid ${(props) => props.theme.colors.gray};
   }
 `;
 

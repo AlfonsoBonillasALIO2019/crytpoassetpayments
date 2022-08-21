@@ -7,6 +7,7 @@ import Button from "./components/button";
 import { Card } from "./components/card";
 import PaymentList from "./components/paymentsList";
 // import { ConnectWallet } from "./components/wallet/CheckWallet";
+import PaymentForm from "./components/paymentForm";
 
 const Wrapper = styled.div`
   width: 100%;
