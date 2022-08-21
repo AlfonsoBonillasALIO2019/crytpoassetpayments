@@ -5,6 +5,8 @@ import { Header2 } from "./Headers";
 import DefaultInput from "./inputs";
 import { Title } from "./typography";
 import Button from "./button";
+import { Framework } from '@superfluid-finance/sdk-core';
+import { ethers } from "ethers";
 
 const Wrapper = styled.div`
   min-width: 400px;
@@ -25,6 +27,61 @@ const Form = styled.form`
   flex-direction: column;
   gap: 32px;
 `;
+
+const handlerCreateFlow = async () => {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    const sf = await Framework.create({
+      chainId: Number(chainId),
+      provider: provider,
+    });
+
+    const DAIxContract = await sf.loadSuperToken('fDAIx');
+    const DAIx = DAIxContract.address;
+
+    const createFlowOperation = sf.cfaV1.createFlow({
+      receiver: '0x5F31a7FA8a3770Bd4C015952dB847456f5a6dCe0',
+      flowRate: '100000000',
+      superToken: DAIx,
+    });
+
+    const result = await createFlowOperation.exec(signer);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const handlerDeleteFlow = async () => {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+    const sf = await Framework.create({
+      chainId: Number(chainId),
+      provider: provider,
+    });
+
+    const DAIxContract = await sf.loadSuperToken('fDAIx');
+    const DAIx = DAIxContract.address;
+
+    const deleteFlowOperation = sf.cfaV1.deleteFlow({
+      sender: await signer.getAddress(),
+      receiver: '0x5F31a7FA8a3770Bd4C015952dB847456f5a6dCe0',
+      superToken: DAIx,
+    });
+
+    const result = await deleteFlowOperation.exec(signer);
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const PaymentForm = () => {
   return (
