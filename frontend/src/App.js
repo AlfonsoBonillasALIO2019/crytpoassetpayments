@@ -86,7 +86,7 @@ function App() {
             </Card>
           )}
           {currentAccount && (
-            <PaymentList /> 
+            <PaymentList account={currentAccount} /> 
           )}
         </Wrapper>
       </ThemeProvider>

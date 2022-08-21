@@ -31,12 +31,16 @@ const EmptyList = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.colors.gray};
 `;
 
-const PaymentList = () => {
+
+const PaymentList = (props) => {
+  const accountNum = props.account;
+  const shortAddr = accountNum.slice(0,5) + '...' + accountNum.slice(accountNum.length - 4, accountNum.length);
+
   return (
     <Card>
       <Wrapper>
         <PaymentListHeader>
-          <Title>[User adress]</Title>
+          <Title>{shortAddr}</Title>
           <ButtonWithIcon icon={"log-out"}>Log-out</ButtonWithIcon>
         </PaymentListHeader>
         <Header1 />
